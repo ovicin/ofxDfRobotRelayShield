@@ -3,7 +3,7 @@
 
 ofxDfRobotRelayShield::ofxDfRobotRelayShield()
 {
-	
+	DisableRelaysControl = false;
 }
 
 ofxDfRobotRelayShield::~ofxDfRobotRelayShield()
@@ -25,18 +25,19 @@ void ofxDfRobotRelayShield::setup()
 	// (ie, COM4 on a pc, /dev/tty.... on linux, /dev/tty... on a mac)
 	// arduino users check in arduino app....
 	//serial.setup(0, baud); //open the first device
-	int baud=9600;
+	int baud=115200;
 	ofxDfRobotRelayShield::serial.setup(DEFAULT_SERIAL_COM, baud); // windows example 
 
 }
 
 unsigned char ofxDfRobotRelayShield::SendCommand(unsigned char command,unsigned char data)
 {
-
+	if (!DisableRelaysControl){
 	ofxDfRobotRelayShield::serial.writeByte(command);
 	ofxDfRobotRelayShield::serial.writeByte(data);
-	while(1!= serial.readByte());
-
+	//while(1!= serial.readByte());
+	}
+	//cout << "Command executed\n";
 	return 0;
 }
 
@@ -112,6 +113,18 @@ unsigned char ofxDfRobotRelayShield::Relay4On()
 	return 0;
 }
 
+unsigned char ofxDfRobotRelayShield::Relay5On()
+{
+	SendCommand(CMD_RELAY5_ON,0);
+	return 0;
+}
+
+unsigned char ofxDfRobotRelayShield::Relay6On()
+{
+	SendCommand(CMD_RELAY6_ON,0);
+	return 0;
+}
+
 unsigned char ofxDfRobotRelayShield::Relay1Off()
 {
 	SendCommand(CMD_RELAY1_OFF,0);
@@ -133,5 +146,17 @@ unsigned char ofxDfRobotRelayShield::Relay3Off()
 unsigned char ofxDfRobotRelayShield::Relay4Off()
 {
 	SendCommand(CMD_RELAY4_OFF,0);
+	return 0;
+}
+
+unsigned char ofxDfRobotRelayShield::Relay5Off()
+{
+	SendCommand(CMD_RELAY5_OFF,0);
+	return 0;
+}
+
+unsigned char ofxDfRobotRelayShield::Relay6Off()
+{
+	SendCommand(CMD_RELAY6_OFF,0);
 	return 0;
 }

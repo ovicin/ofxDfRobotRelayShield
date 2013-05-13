@@ -5,7 +5,7 @@
 
 
 #define ARDUINO_CONNECTED
-#define DEFAULT_SERIAL_COM "\\\\.\\COM4"
+#define DEFAULT_SERIAL_COM "\\\\.\\COM3"
 //#define DEFAULT_SERIAL_COM "COM12"
 
 class ofxDfRobotRelayShield{
@@ -15,6 +15,7 @@ class ofxDfRobotRelayShield{
 		ofxDfRobotRelayShield();
 		//ofxChinoDolly(string ComPort);
 
+		bool DisableRelaysControl;
 
 		~ofxDfRobotRelayShield();
 		void setup();
@@ -31,10 +32,14 @@ class ofxDfRobotRelayShield{
 		unsigned char Relay2On();
 		unsigned char Relay3On();
 		unsigned char Relay4On();
+		unsigned char Relay5On();
+		unsigned char Relay6On();
 		unsigned char Relay1Off();
 		unsigned char Relay2Off();
 		unsigned char Relay3Off();
 		unsigned char Relay4Off();
+		unsigned char Relay5Off();
+		unsigned char Relay6Off();
 	
 
 	private:

@@ -22,7 +22,12 @@
 #define CMD_RELAY3_OFF    	13
 #define CMD_RELAY4_ON    	14
 #define CMD_RELAY4_OFF    	15
-
+#define CMD_RELAY1_3_PULSE	16
+#define CMD_RELAY2_3_PULSE	17
+#define CMD_RELAY5_ON    	18
+#define CMD_RELAY5_OFF    	19
+#define CMD_RELAY6_ON    	20
+#define CMD_RELAY6_OFF    	21
 
 /*
 definition of response codes
